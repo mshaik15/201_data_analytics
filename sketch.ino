@@ -78,7 +78,7 @@ void loop() {
     unsigned long elapsed_time = stop_time - start_time;
     Serial.println(elapsed_time);
   } else {
-    Serial.println("N/A");
+    Serial.println("NaN");
   }
 
   // Close gate and wait before next trial
