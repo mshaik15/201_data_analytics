@@ -18,7 +18,6 @@ print(f"Sample Size: {len(df)}") # 109
 print(f"Sample Mean: {mean:.2f} μs") # 1310125.25 μs
 print(f"Sample Standard Deviation: {std:.2f} μs") # 107202.17 μs
 
-
 plt.figure(figsize=(10, 6))
 x_min = mean - 3*std
 x_max = mean + 3*std
@@ -28,11 +27,11 @@ plt.hist(df["time"], bins=bins, density=True, alpha=0.6,
 plt.title("Histogram of Ball Roll Times in Microseconds")
 plt.xlabel("Time (μs)")
 plt.ylabel("Relative Frequency")
+plt.gca().ticklabel_format(axis='y', style='plain')
 plt.grid(True, linestyle="--", alpha=0.6)
 plt.tight_layout()
 plt.savefig("histogram.jpg", dpi=300)
 plt.close()
-
 
 plt.figure(figsize=(10, 6))
 plt.hist(df["time"], bins=bins, density=True, alpha=0.6,
@@ -43,6 +42,7 @@ plt.plot(x, p, "r", linewidth=2, label="Normal Distribution")
 plt.title("Histogram with Normal Distribution Curve")
 plt.xlabel("Time (μs)")
 plt.ylabel("Relative Frequency")
+plt.gca().ticklabel_format(axis='y', style='plain')
 plt.legend()
 plt.grid(True, linestyle="--", alpha=0.6)
 plt.tight_layout()
