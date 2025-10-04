@@ -14,20 +14,20 @@ df["time"] = df["time"].astype(int)
 mean = df["time"].mean()
 std = df["time"].std(ddof=1)
 
-print(f"Sample Size: {len(df)}") # 109
-print(f"Sample Mean: {mean:.2f} μs") # 1310125.25 μs
-print(f"Sample Standard Deviation: {std:.2f} μs") # 107202.17 μs
+print(f"Sample Size: {len(df)}") # Sample Size: 109
+print(f"Sample Mean: {mean:.2f} μs") # Sample Mean: 1310125.25 μs
+print(f"Sample Standard Deviation: {std:.2f} μs") # Sample Standard Deviation: 107202.17 μs
+
 
 plt.figure(figsize=(10, 6))
 x_min = mean - 3*std
 x_max = mean + 3*std
 bins = np.linspace(x_min, x_max, 20)
-plt.hist(df["time"], bins=bins, density=True, alpha=0.6,
+plt.hist(df["time"], bins=bins, alpha=0.6,
          color="skyblue", edgecolor="black")
 plt.title("Histogram of Ball Roll Times in Microseconds")
 plt.xlabel("Time (μs)")
-plt.ylabel("Relative Frequency")
-plt.gca().ticklabel_format(axis='y', style='plain')
+plt.ylabel("Frequency")
 plt.grid(True, linestyle="--", alpha=0.6)
 plt.tight_layout()
 plt.savefig("histogram.jpg", dpi=300)
